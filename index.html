@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OW Magia Dotyku | Olga Wiktorowicz - Salon Masażu, Końskie</title>
+    <link rel="icon" type="image/jpeg" href="assets/images/421f349a-89fa-4627-90d6-3e0a6da3d2e3.JPG">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#121212',
+                        darkCard: '#1C1C1C',
+                        darkAccent: '#252525',
+                        gold: {
+                            light: '#E5C07B',
+                            DEFAULT: '#C5A059',
+                            dark: '#A37F3C'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                        script: ['Great Vibes', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Styles -->
+    <style>
+        .gold-gradient {
+            background: linear-gradient(135deg, #C5A059 0%, #F3E5AB 50%, #A37F3C 100%);
+        }
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #F3E5AB 0%, #C5A059 50%, #A37F3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-border-gradient {
+            border-image: linear-gradient(135deg, #C5A059, #F3E5AB, #A37F3C) 1;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121212;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A059;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #A37F3C;
+        }
+        /* Dot leaders for pricing */
+        .pricing-dots {
+            flex-grow: 1;
+            border-bottom: 1px dotted rgba(197, 160, 89, 0.4);
+            margin: 0 10px;
+            position: relative;
+            bottom: 4px;
+        }
+        /* Hover effect transitions */
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(197, 160, 89, 0.15);
+        }
+        /* Smooth fade-in overlay */
+        .image-overlay {
+            background: linear-gradient(to top, rgba(18, 18, 18, 1) 0%, rgba(18, 18, 18, 0.4) 50%, rgba(18, 18, 18, 0.7) 100%);
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-[#EAEAEA] font-sans antialiased selection:bg-gold selection:text-darkBg">
+
+    <!-- Sticky Navigation Header -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="#hero" class="flex items-center space-x-3 group">
+                <img src="assets/images/421f349a-89fa-4627-90d6-3e0a6da3d2e3.JPG" alt="OW Magia Dotyku" class="h-12 w-12 sm:h-14 sm:w-14 rounded-full object-cover transition-transform duration-500 group-hover:rotate-[5deg]">
+                <div class="flex flex-col">
+                    <span class="font-serif text-base sm:text-lg tracking-wider text-gold font-semibold">OW Magia Dotyku</span>
+                    <span class="text-[8px] sm:text-[9px] uppercase tracking-[0.16em] sm:tracking-[0.2em] text-gray-400">Olga Wiktorowicz - Końskie</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex space-x-8 items-center text-sm font-medium tracking-wider uppercase">
+                <a href="#o-mnie" class="hover:text-gold transition-colors duration-200">O Mnie</a>
+                <a href="#cennik" class="hover:text-gold transition-colors duration-200">Cennik</a>
+                <a href="#kwalifikacje" class="hover:text-gold transition-colors duration-200">Kwalifikacje</a>
+                <a href="#uslugi" class="hover:text-gold transition-colors duration-200">Zabiegi</a>
+                <a href="#sauna" class="hover:text-gold transition-colors duration-200">Sauna Infrared</a>
+                <a href="#kontakt" class="hover:text-gold transition-colors duration-200">Kontakt</a>
+                <a href="tel:+48512316749" class="px-5 py-2.5 rounded-md text-xs font-semibold uppercase tracking-widest gold-gradient text-darkBg shadow-lg hover:shadow-gold/20 hover:scale-105 transition-all duration-300">
+                    Zadzwoń
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-gold focus:outline-none focus:ring-2 focus:ring-gold p-2 rounded" aria-label="Menu">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden fixed inset-x-0 bottom-0 bg-darkBg/95 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-5 min-[360px]:gap-7 sm:gap-8 overflow-y-auto py-8 px-6 text-base min-[360px]:text-lg uppercase tracking-[0.2em] font-medium transition-all duration-300">
+            <a href="#o-mnie" class="mobile-nav-link hover:text-gold">O Mnie</a>
+            <a href="#cennik" class="mobile-nav-link hover:text-gold">Cennik</a>
+            <a href="#kwalifikacje" class="mobile-nav-link hover:text-gold">Kwalifikacje</a>
+            <a href="#uslugi" class="mobile-nav-link hover:text-gold">Zabiegi</a>
+            <a href="#sauna" class="mobile-nav-link hover:text-gold">Sauna Infrared</a>
+            <a href="#kontakt" class="mobile-nav-link hover:text-gold">Kontakt</a>
+            <a href="tel:+48512316749" class="mobile-nav-link px-8 py-3.5 rounded-md text-sm font-semibold tracking-widest gold-gradient text-darkBg shadow-lg">
+                Zadzwoń
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-24 pb-16 min-[360px]:pt-28 min-[360px]:pb-20">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" style="background-image: url('https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80&w=1600');"></div>
+        <div class="absolute inset-0 image-overlay z-10"></div>
+
+        <div class="relative z-20 max-w-4xl mx-auto text-center px-5 sm:px-6 md:px-12 flex flex-col items-center">
+            <span class="font-script text-3xl min-[360px]:text-4xl md:text-5xl text-gold mb-2 min-[360px]:mb-3">Chwila wytchnienia, której potrzebujesz</span>
+            <h1 class="font-serif text-3xl min-[360px]:text-4xl md:text-7xl font-bold tracking-tight mb-4 min-[360px]:mb-6 text-white leading-tight">
+                Poznaj <span class="gold-text-gradient">Magię Dotyku</span>
+            </h1>
+            <p class="text-gray-300 text-sm min-[360px]:text-base md:text-lg max-w-xl font-light tracking-wide leading-relaxed mb-6 min-[360px]:mb-10">
+                Zapraszam Cię do mojego kameralnego gabinetu w Końskich. Oferuję profesjonalne masaże, relaksujące rytuały oraz seanse w saunie Infrared stworzone z myślą o Twoim głębokim odprężeniu.
+            </p>
+            <div class="flex w-full max-w-xs flex-col gap-3 sm:w-auto sm:max-w-none sm:flex-row sm:gap-6">
+                <a href="tel:+48512316749" class="w-full sm:w-auto px-5 min-[360px]:px-8 py-3.5 min-[360px]:py-4 rounded-md text-[11px] min-[360px]:text-sm font-semibold tracking-[0.14em] min-[360px]:tracking-widest uppercase gold-gradient text-darkBg shadow-[0_0_20px_rgba(197,160,89,0.3)] hover:shadow-[0_0_35px_rgba(197,160,89,0.5)] hover:scale-105 transition-all duration-300">
+                    Zadzwoń i Umów Wizytę
+                </a>
+                <a href="#cennik" class="w-full sm:w-auto px-5 min-[360px]:px-8 py-3.5 min-[360px]:py-4 rounded-md text-[11px] min-[360px]:text-sm font-semibold tracking-[0.14em] min-[360px]:tracking-widest uppercase border border-gold/40 hover:border-gold hover:bg-gold/5 text-gold transition-all duration-300">
+                    Oferta Zabiegów
+                </a>
+            </div>
+        </div>
+
+        <div class="hidden min-[360px]:block absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+            <a href="#o-mnie" class="text-gold/60 hover:text-gold transition-colors duration-200">
+                <i class="fa-solid fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- O Mnie Section -->
+    <section id="o-mnie" class="py-24 md:py-32 relative overflow-hidden bg-darkBg">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8 scroll-reveal">
+                    <div class="space-y-2">
+                        <span class="text-xs font-semibold uppercase tracking-[0.3em] text-gold">Poznajmy się</span>
+                        <h2 class="font-serif text-3xl md:text-5xl font-semibold text-white">Nazywam się Olga Wiktorowicz</h2>
+                    </div>
+                    
+                    <p class="text-gray-300 leading-relaxed font-light text-base md:text-lg">
+                        Mój gabinet <strong>OW Magia Dotyku</strong> w Końskich powstał z pasji do niesienia ulgi i przywracania harmonii ludzkiemu ciału. Salon prowadzę całkowicie samodzielnie, co pozwala mi na zachowanie kameralnej, w pełni zindywidualizowanej atmosfery. 
+                    </p>
+                    
+                    <p class="text-gray-400 leading-relaxed font-light text-sm md:text-base">
+                        Każdy zabieg w moim gabinecie to unikalne doświadczenie dopasowane wyłącznie do Twoich potrzeb. Dbam o to, aby czas spędzony na Łaziennej 13 był dla Ciebie ucieczką od codziennego stresu – w otoczeniu kojącej muzyki, aromatycznych naturalnych olejków i ciepłego blasku świec.
+                    </p>
+
+                    <div class="grid grid-cols-1 min-[380px]:grid-cols-3 gap-4 sm:gap-6 pt-6 text-center border-t border-gold/10">
+                        <div>
+                            <span class="block font-serif text-2xl sm:text-3xl text-gold font-bold">1:1</span>
+                            <span class="text-[11px] sm:text-xs text-gray-400 uppercase tracking-[0.16em] sm:tracking-widest">Indywidualna opieka</span>
+                        </div>
+                        <div>
+                            <span class="block font-serif text-2xl sm:text-3xl text-gold font-bold">Końskie</span>
+                            <span class="text-[11px] sm:text-xs text-gray-400 uppercase tracking-[0.16em] sm:tracking-widest">ul. Łazienna 13</span>
+                        </div>
+                        <div>
+                            <span class="block font-serif text-2xl sm:text-3xl text-gold font-bold">Z pasji</span>
+                            <span class="text-[11px] sm:text-xs text-gray-400 uppercase tracking-[0.16em] sm:tracking-widest">Do Masażu</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative lg:pl-8 scroll-reveal">
+                    <div class="absolute inset-0 border border-gold/20 translate-x-4 translate-y-4 rounded-lg -z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=1200" alt="Masaż relaksacyjny w OW Magia Dotyku" class="rounded-lg shadow-2xl w-full object-cover aspect-[4/3] filter brightness-95 contrast-105">
+                    <div class="absolute -bottom-6 -left-6 bg-darkCard border border-gold/20 p-5 rounded-lg shadow-xl hidden sm:block max-w-[240px]">
+                        <p class="text-gold font-script text-2xl mb-1">Magia w Końskich</p>
+                        <p class="text-xs text-gray-400 leading-snug">Zatroszcz się o swoje ciało w profesjonalnych i pewnych rękach.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cennik / Pricing Menu Section -->
+    <section id="cennik" class="py-24 md:py-32 bg-darkCard relative">
+        <div class="max-w-5xl mx-auto px-6 md:px-12">
+            <div class="text-center max-w-2xl mx-auto mb-20 space-y-4">
+                <span class="text-xs font-semibold uppercase tracking-[0.3em] text-gold">Oficjalny cennik zabiegów</span>
+                <h2 class="font-serif text-3xl md:text-5xl font-semibold text-white">Karta Rytuałów & Cennik</h2>
+                <p class="text-gray-400 font-light text-sm">Wszystkie zabiegi wykonuję z dbałością o najdrobniejsze detale. Sprawdź moją pełną ofertę i umów idealny seans telefonicznie.</p>
+            </div>
+
+            <div class="space-y-16">
+                <!-- Group 1: Masaże -->
+                <div class="space-y-6">
+                    <h3 class="font-serif text-2xl text-gold border-b border-gold/20 pb-2 flex items-center gap-3">
+                        <i class="fa-solid fa-spa text-lg"></i> Masaże Rytualne i Relaksacyjne
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between py-2">
+                            <div class="flex-grow flex justify-between items-baseline">
+                                <span class="font-medium text-white text-base md:text-lg">Masaż relaksacyjny całego ciała</span>
+                                <span class="pricing-dots hidden sm:inline-block"></span>
+                            </div>
+                            <div class="flex justify-between items-center sm:block mt-1 sm:mt-0">
+                                <span class="text-gray-400 text-sm mr-4 sm:mr-0 sm:inline-block">60 min</span>
+                                <span class="text-gold font-bold font-serif text-lg">150 zł</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between py-2 border-t border-gold/5">
+                            <div class="flex-grow flex justify-between items-baseline">
+                                <span class="font-medium text-white text-base md:text-lg">Masaż relaksacyjny pleców</span>
+                                <span class="pricing-dots hidden sm:inline-block"></span>
+                            </div>
+                            <div class="flex justify-between items-center sm:block mt-1 sm:mt-0">
+                                <span class="text-gray-400 text-sm mr-4 sm:mr-0 sm:inline-block">30 min</span>
+                                <span class="text-gold font-bold font-serif text-lg">80 zł</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between py-2 border-t border-gold/5">
+                            <div class="flex-grow flex justify-between items-baseline">
+                                <span class="font-medium text-white text-base md:text-lg">Masaż bańką chińską całego ciała</span>
+                                <span class="pricing-dots hidden sm:inline-block"></span>
+                            </div>
+                            <div class="flex justify-between items-center sm:block mt-1 sm:mt-0">
+                                <span class="text-gray-400 text-sm mr-4 sm:mr-0 sm:inline-block">60 min</span>
+                                <span class="text-gold font-bold font-serif text-lg">120 zł</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between py-2 border-t border-gold/5">
+                            <div class="flex-grow flex justify-between items-baseline">
+                                <span class="font-medium text-white text-base md:text-lg">Masaż bańką chińską ud i pośladków</span>
+                                <span class="pricing-dots hidden sm:inline-block"></span>
+                            </div>
+                            <div class="flex justify-between items-center sm:block mt-1 sm:mt-0">
+                                <span class="text-gray-400 text-sm mr-4 sm:mr-0 sm:inline-block">30 min</span>
+                                <span class="text-gold font-bold font-serif text-lg">80 zł</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between py-2 border-t border-gold/5">
+                            <div class="flex-grow flex justify-between items-baseline">
+                                <span class="font-medium text-white text-base md:text-lg">Masaż gorącymi kamieniami całego ciała</span>
+                                <span class="pricing-dots hidden sm:inline-block"></span>
+                            </div>
+                            <div class="flex justify-between items-center sm:block mt-1 sm:mt-0">
+                                <span class="text-gray-400 text-sm mr-4 sm:mr-0 sm:inline-block">60 min</span>
+                                <span class="text-gold font-bold font-serif text-lg">170 zł</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between py-2 border-t border-gold/5">
+                            <div class="flex-grow flex justify-between items-baseline">
+                                <span class="font-medium text-white text-base md:text-lg">Masaż gorącymi kamieniami tyłu ciała</span>
+                                <span class="pricing-dots hidden sm:inline-block"></span>
+                            </div>
+                            <div class="flex justify-between items-center sm:block mt-1 sm:mt-0">
+                                <span class="text-gray-400 text-sm mr-4 sm:mr-0 sm:inline-block">30 min</span>
+                                <span class="text-gold font-bold font-serif text-lg">120 zł</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between py-2 border-t border-gold/5">
+                            <div class="flex-grow flex justify-between items-baseline">
+                                <span class="font-medium text-white text-base md:text-lg">Masaż gorącą czekoladą całego ciała</span>
+                                <span class="pricing-dots hidden sm:inline-block"></span>
+                            </div>
+                            <div class="flex justify-between items-center sm:block mt-1 sm:mt-0">
+                                <span class="text-gray-400 text-sm mr-4 sm:mr-0 sm:inline-block">60 min</span>
+                                <span class="text-gold font-bold font-serif text-lg">170 zł</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between py-2 border-t border-gold/5">
+                            <div class="flex-grow flex justify-between items-baseline">
+                                <span class="font-medium text-white text-base md:text-lg">Masaż gorącą czekoladą tyłu ciała</span>
+                                <span class="pricing-dots hidden sm:inline-block"></span>
+                            </div>
+                            <div class="flex justify-between items-center sm:block mt-1 sm:mt-0">
+                                <span class="text-gray-400 text-sm mr-4 sm:mr-0 sm:inline-block">30 min</span>
+                                <span class="text-gold font-bold font-serif text-lg">130 zł</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between py-2 border-t border-gold/5">
+                            <div class="flex-grow flex justify-between items-baseline">
+                                <span class="font-medium text-white text-base md:text-lg">Masaż miodem całego ciała</span>
+                                <span class="pricing-dots hidden sm:inline-block"></span>
+                            </div>
+                            <div class="flex justify-between items-center sm:block mt-1 sm:mt-0">
+                                <span class="text-gray-400 text-sm mr-4 sm:mr-0 sm:inline-block">60 min</span>
+                                <span class="text-gold font-bold font-serif text-lg">160 zł</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between py-2 border-t border-gold/5">
+                            <div class="flex-grow flex justify-between items-baseline">
+                                <span class="font-medium text-white text-base md:text-lg">Masaż miodem tyłu ciała</span>
+                                <span class="pricing-dots hidden sm:inline-block"></span>
+                            </div>
+                            <div class="flex justify-between items-center sm:block mt-1 sm:mt-0">
+                                <span class="text-gray-400 text-sm mr-4 sm:mr-0 sm:inline-block">30 min</span>
+                                <span class="text-gold font-bold font-serif text-lg">100 zł</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group 2: Pielęgnacja Twarzy i Ciała -->
+                <div class="space-y-6">
+                    <h3 class="font-serif text-2xl text-gold border-b border-gold/20 pb-2 flex items-center gap-3">
+                        <i class="fa-solid fa-wand-magic-sparkles text-lg"></i> Kosmetyka i Pielęgnacja
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between py-2">
+                            <div class="flex-grow flex justify-between items-baseline">
+                                <span class="font-medium text-white text-base md:text-lg">Pielęgnacja ciała – peeling</span>
+                                <span class="pricing-dots hidden sm:inline-block"></span>
+                            </div>
+                            <div class="flex justify-between items-center sm:block mt-1 sm:mt-0">
+                                <span class="text-gray-400 text-sm mr-4 sm:mr-0 sm:inline-block">60 min</span>
+                                <span class="text-gold font-bold font-serif text-lg">140 zł</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between py-2 border-t border-gold/5">
+                            <div class="flex-grow flex justify-between items-baseline">
+                                <span class="font-medium text-white text-base md:text-lg">Body wrapping całego ciała</span>
+                                <span class="pricing-dots hidden sm:inline-block"></span>
+                            </div>
+                            <div class="flex justify-between items-center sm:block mt-1 sm:mt-0">
+                                <span class="text-gray-400 text-sm mr-4 sm:mr-0 sm:inline-block">60 min</span>
+                                <span class="text-gold font-bold font-serif text-lg">160 zł</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between py-2 border-t border-gold/5">
+                            <div class="flex-grow flex justify-between items-baseline">
+                                <span class="font-medium text-white text-base md:text-lg">Masaż twarzy + maseczka</span>
+                                <span class="pricing-dots hidden sm:inline-block"></span>
+                            </div>
+                            <div class="flex justify-between items-center sm:block mt-1 sm:mt-0">
+                                <span class="text-gray-400 text-sm mr-4 sm:mr-0 sm:inline-block">30 min</span>
+                                <span class="text-gold font-bold font-serif text-lg">100 zł</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between py-2 border-t border-gold/5">
+                            <div class="flex-grow flex justify-between items-baseline">
+                                <span class="font-medium text-white text-base md:text-lg">Masaż twarzy, szyi i dekoltu + maseczka</span>
+                                <span class="pricing-dots hidden sm:inline-block"></span>
+                            </div>
+                            <div class="flex justify-between items-center sm:block mt-1 sm:mt-0">
+                                <span class="text-gray-400 text-sm mr-4 sm:mr-0 sm:inline-block">40 min</span>
+                                <span class="text-gold font-bold font-serif text-lg">140 zł</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between py-2 border-t border-gold/5">
+                            <div class="flex-grow flex justify-between items-baseline">
+                                <span class="font-medium text-white text-base md:text-lg">Oczyszczanie twarzy + maseczka</span>
+                                <span class="pricing-dots hidden sm:inline-block"></span>
+                            </div>
+                            <div class="flex justify-between items-center sm:block mt-1 sm:mt-0">
+                                <span class="text-gray-400 text-sm mr-4 sm:mr-0 sm:inline-block">30 min</span>
+                                <span class="text-gold font-bold font-serif text-lg">100 zł</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group 3: Sauna -->
+                <div class="space-y-6">
+                    <h3 class="font-serif text-2xl text-gold border-b border-gold/20 pb-2 flex items-center gap-3">
+                        <i class="fa-solid fa-sun text-lg"></i> Seans Saunowy (Infrared)
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between py-2">
+                            <div class="flex-grow flex justify-between items-baseline">
+                                <span class="font-medium text-white text-base md:text-lg">Seans saunowy (Infrared)</span>
+                                <span class="pricing-dots hidden sm:inline-block"></span>
+                            </div>
+                            <div class="flex justify-between items-center sm:block mt-1 sm:mt-0">
+                                <span class="text-gray-400 text-sm mr-4 sm:mr-0 sm:inline-block">60 min</span>
+                                <span class="text-gold font-bold font-serif text-lg">170 zł</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Voucher Podarunkowy Section -->
+            <div class="mt-20 bg-darkBg border border-gold/20 rounded-xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 hover-lift">
+                <div class="flex items-center space-x-5">
+                    <span class="h-14 w-14 rounded-full border border-gold/30 flex items-center justify-center text-gold bg-gold/5 shrink-0 text-2xl">
+                        <i class="fa-solid fa-gift"></i>
+                    </span>
+                    <div>
+                        <h4 class="font-serif text-xl font-bold text-white tracking-wide uppercase">Voucher Podarunkowy</h4>
+                        <p class="text-sm text-gray-400 mt-1">Podaruj bliskiej osobie chwilę relaksu i odprężenia. Vouchery dostępne na dowolną kwotę lub wybrany zabieg.</p>
+                    </div>
+                </div>
+                <a href="tel:+48512316749" class="inline-flex w-full md:w-auto items-center justify-center text-center px-6 py-3.5 rounded-md text-xs font-bold uppercase tracking-[0.14em] sm:tracking-widest gold-gradient text-darkBg shadow-lg hover:shadow-gold/20 shrink-0 transition-all duration-300">
+                    Zamów Voucher Telefonicznie <i class="fa-solid fa-phone ml-1"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Moje Kwalifikacje / Kursy -->
+    <section id="kwalifikacje" class="py-20 bg-darkCard relative overflow-hidden border-t border-b border-gold/10">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <span class="text-xs font-semibold uppercase tracking-[0.3em] text-gold">Potwierdzony Profesjonalizm</span>
+                <h2 class="font-serif text-3xl md:text-4xl font-semibold text-white">Ukończone Kursy i Certyfikaty</h2>
+                <p class="text-gray-400 font-light text-sm">Moje umiejętności i wiedza zostały poparte profesjonalnymi szkoleniami, aby zapewnić Ci pełne bezpieczeństwo i najwyższy standard zabiegów.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-darkBg p-6 rounded-lg border border-gold/15 flex items-start space-x-4 hover-lift">
+                    <span class="text-gold text-2xl shrink-0 mt-1"><i class="fa-solid fa-graduation-cap"></i></span>
+                    <div>
+                        <h4 class="font-serif font-semibold text-white text-base">Body Wrapping</h4>
+                        <p class="text-xs text-gray-400 mt-1">Zaawansowany zabieg modelująco-ujędrniający sylwetkę przy użyciu specjalnych preparatów i technik owijania ciała.</p>
+                    </div>
+                </div>
+                <div class="bg-darkBg p-6 rounded-lg border border-gold/15 flex items-start space-x-4 hover-lift">
+                    <span class="text-gold text-2xl shrink-0 mt-1"><i class="fa-solid fa-graduation-cap"></i></span>
+                    <div>
+                        <h4 class="font-serif font-semibold text-white text-base">Masaż bańką chińską</h4>
+                        <p class="text-xs text-gray-400 mt-1">Klasyczny masaż próżniowy, znakomity do ujędrniania skóry, walki z cellulitem oraz pobudzania krążenia.</p>
+                    </div>
+                </div>
+                <div class="bg-darkBg p-6 rounded-lg border border-gold/15 flex items-start space-x-4 hover-lift">
+                    <span class="text-gold text-2xl shrink-0 mt-1"><i class="fa-solid fa-graduation-cap"></i></span>
+                    <div>
+                        <h4 class="font-serif font-semibold text-white text-base">Masaż gorącymi kamieniami</h4>
+                        <p class="text-xs text-gray-400 mt-1">Głębokie rozgrzanie i rozluźnienie napięć mięśniowych przy użyciu naturalnych kamieni bazaltowych.</p>
+                    </div>
+                </div>
+                <div class="bg-darkBg p-6 rounded-lg border border-gold/15 flex items-start space-x-4 hover-lift">
+                    <span class="text-gold text-2xl shrink-0 mt-1"><i class="fa-solid fa-graduation-cap"></i></span>
+                    <div>
+                        <h4 class="font-serif font-semibold text-white text-base">Masaż relaksacyjny z aromaterapią</h4>
+                        <p class="text-xs text-gray-400 mt-1">Połączenie precyzyjnego dotyku i głębokiego relaksu przy użyciu naturalnych, aromatycznych olejków eterycznych.</p>
+                    </div>
+                </div>
+                <div class="bg-darkBg p-6 rounded-lg border border-gold/15 flex items-start space-x-4 hover-lift">
+                    <span class="text-gold text-2xl shrink-0 mt-1"><i class="fa-solid fa-graduation-cap"></i></span>
+                    <div>
+                        <h4 class="font-serif font-semibold text-white text-base">Masaż twarzy, szyi i dekoltu</h4>
+                        <p class="text-xs text-gray-400 mt-1">Zabieg poprawiający elastyczność skóry, niwelujący napięcia mimiczne i dający naturalny efekt odmłodzenia.</p>
+                    </div>
+                </div>
+                <div class="bg-darkBg p-6 rounded-lg border border-gold/15 flex items-start space-x-4 hover-lift">
+                    <span class="text-gold text-2xl shrink-0 mt-1"><i class="fa-solid fa-graduation-cap"></i></span>
+                    <div>
+                        <h4 class="font-serif font-semibold text-white text-base">Masaż miodem i czekoladą</h4>
+                        <p class="text-xs text-gray-400 mt-1">Niezwykle zmysłowe, odżywcze i detoksykujące zabiegi na bazie naturalnego miodu pszczelego oraz gorącej czekolady.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Usługi / Oferta Section -->
+    <section id="uslugi" class="py-24 md:py-32 bg-darkBg relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            
+            <div class="text-center max-w-2xl mx-auto mb-14 space-y-4">
+                <span class="text-xs font-semibold uppercase tracking-[0.3em] text-gold">Co dla Ciebie przygotowałam</span>
+                <h2 class="font-serif text-3xl md:text-5xl font-semibold text-white">Moje Usługi i Rytuały</h2>
+                <p class="text-gray-400 font-light text-sm md:text-base">Wybierz kafelek, aby zobaczyć zgrabny opis zabiegu: jak wygląda, na czym polega i po co warto go wykonać.</p>
+            </div>
+
+            <div class="relative">
+                <div class="flex items-center justify-between gap-4 mb-6">
+                    <p class="text-xs uppercase tracking-[0.25em] text-gray-500">Przewiń i wybierz usługę</p>
+                    <div class="flex items-center gap-3">
+                        <button id="services-prev" type="button" class="h-10 w-10 rounded-full border border-gold/25 text-gold hover:border-gold hover:bg-gold/10 transition-colors duration-200" aria-label="Poprzednie usługi">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button id="services-next" type="button" class="h-10 w-10 rounded-full border border-gold/25 text-gold hover:border-gold hover:bg-gold/10 transition-colors duration-200" aria-label="Następne usługi">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="services-carousel" class="flex gap-5 overflow-x-auto scroll-smooth pb-4 snap-x snap-mandatory"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Details Modal -->
+    <div id="service-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden items-center justify-center p-4">
+        <div class="bg-darkCard border border-gold/30 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-7 md:p-8 relative shadow-2xl">
+            <button id="service-modal-close" type="button" class="absolute top-4 right-4 h-9 w-9 rounded-full border border-gold/20 text-gray-400 hover:text-gold hover:border-gold transition-colors duration-200" aria-label="Zamknij opis usługi">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="pr-10">
+                <span id="service-modal-category" class="text-xs font-semibold uppercase tracking-[0.3em] text-gold"></span>
+                <h3 id="service-modal-title" class="font-serif text-3xl md:text-4xl font-semibold text-white mt-3"></h3>
+                <p id="service-modal-meta" class="text-sm text-gray-400 mt-2"></p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8">
+                <div class="bg-darkBg border border-gold/10 rounded-lg p-5">
+                    <h4 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-3">Jak wygląda</h4>
+                    <p id="service-modal-look" class="text-sm text-gray-300 leading-relaxed font-light"></p>
+                </div>
+                <div class="bg-darkBg border border-gold/10 rounded-lg p-5">
+                    <h4 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-3">Na czym polega</h4>
+                    <p id="service-modal-method" class="text-sm text-gray-300 leading-relaxed font-light"></p>
+                </div>
+                <div class="bg-darkBg border border-gold/10 rounded-lg p-5">
+                    <h4 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-3">Po co</h4>
+                    <p id="service-modal-purpose" class="text-sm text-gray-300 leading-relaxed font-light"></p>
+                </div>
+            </div>
+
+            <div class="mt-7 flex flex-col sm:flex-row gap-3">
+                <a href="tel:+48512316749" class="inline-flex items-center justify-center px-6 py-3.5 rounded-md text-xs font-bold uppercase tracking-widest gold-gradient text-darkBg shadow-lg hover:shadow-gold/20 transition-all duration-300">
+                    <i class="fa-solid fa-phone mr-2"></i> Umów telefonicznie
+                </a>
+                <a href="#cennik" id="service-modal-pricing" class="inline-flex items-center justify-center px-6 py-3.5 rounded-md text-xs font-bold uppercase tracking-widest border border-gold/30 text-gold hover:border-gold hover:bg-gold/5 transition-all duration-300">
+                    Zobacz cennik
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sauna Infrared Section -->
+    <section id="sauna" class="py-24 md:py-32 bg-darkCard relative overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none opacity-20">
+            <div class="absolute top-1/4 left-10 text-gold text-sm animate-pulse"><i class="fa-solid fa-star"></i></div>
+            <div class="absolute top-1/3 right-12 text-gold text-xs animate-pulse delay-75"><i class="fa-solid fa-star"></i></div>
+            <div class="absolute bottom-1/4 left-1/3 text-gold text-sm animate-pulse delay-150"><i class="fa-solid fa-star"></i></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="bg-darkBg rounded-2xl border border-gold/20 overflow-hidden shadow-[0_15px_50px_rgba(0,0,0,0.5)]">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="p-8 md:p-16 flex flex-col justify-center space-y-8">
+                        <div class="space-y-3">
+                            <span class="text-xs font-semibold uppercase tracking-[0.3em] text-gold flex items-center gap-2">
+                                <i class="fa-solid fa-fire-burner"></i> Wyjątkowe Doświadczenie
+                            </span>
+                            <h2 class="font-serif text-3xl md:text-5xl font-semibold text-white">Sauna Infrared</h2>
+                            <p class="text-gold/90 font-serif italic text-lg">Głębokie ciepło podczerwieni dla zdrowia i urody</p>
+                        </div>
+
+                        <p class="text-gray-300 font-light leading-relaxed text-sm md:text-base">
+                            Sauna na podczerwień ogrzewa bezpośrednio Twoje ciało, stymulując komórki do naturalnej regeneracji bez uciążliwego, gorącego powietrza. To znakomite uzupełnienie każdego masażu w moim gabinecie.
+                        </p>
+
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-300">
+                            <li class="flex items-center space-x-3">
+                                <span class="text-gold"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Głęboka detoksykacja organizmu</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="text-gold"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Redukcja stresu i zmęczenia</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="text-gold"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Łagodzenie bólów mięśni i stawów</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="text-gold"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Wspomaganie redukcji tkanki tłuszczowej</span>
+                            </li>
+                        </ul>
+
+                        <div class="pt-4">
+                            <a href="tel:+48512316749" class="inline-flex items-center px-6 py-3.5 rounded-md text-xs font-bold uppercase tracking-widest gold-gradient text-darkBg shadow-lg hover:shadow-gold/20 transition-all duration-300">
+                                Umów Seans Telefonicznie <i class="fa-solid fa-phone ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="relative min-h-[350px] lg:min-h-full">
+                        <img src="assets/images/sauna-infrared-przeciwwskazania.webp" alt="Sauna infrared - przeciwwskazania" class="absolute inset-0 w-full h-full object-cover filter brightness-90">
+                        <div class="absolute inset-0 bg-red-900/10 mix-blend-color-burn"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-darkBg via-darkBg/20 to-transparent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt Section -->
+    <section id="kontakt" class="py-24 md:py-32 bg-darkCard relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                
+                <!-- Info Column -->
+                <div class="space-y-8">
+                    <div class="space-y-2">
+                        <span class="text-xs font-semibold uppercase tracking-[0.3em] text-gold">Zapraszam Do Kontaktu</span>
+                        <h2 class="font-serif text-3xl md:text-5xl font-semibold text-white">Zaplanuj Chwilę Wytchnienia</h2>
+                        <p class="text-gray-400 font-light text-sm md:text-base">Mój gabinet mieści się w cichej, ustronnej części Końskich. Zadzwoń lub napisz, aby dopasować idealny termin dla siebie.</p>
+                    </div>
+
+                    <div class="space-y-6 pt-4">
+                        <!-- Address -->
+                        <div class="flex items-start space-x-4">
+                            <span class="h-10 w-10 rounded-full border border-gold/20 flex items-center justify-center text-gold bg-gold/5 shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </span>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white tracking-wider uppercase">Lokalizacja</h4>
+                                <p class="text-gray-400 text-sm mt-1">ul. Łazienna 13, 26-200 Końskie</p>
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="flex items-start space-x-4">
+                            <span class="h-10 w-10 rounded-full border border-gold/20 flex items-center justify-center text-gold bg-gold/5 shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </span>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white tracking-wider uppercase">Telefon (Zadzwoń / SMS)</h4>
+                                <a href="tel:+48512316749" class="inline-block text-gray-400 hover:text-gold text-sm mt-1 transition-colors duration-200">512 316 749</a>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="flex items-start space-x-4">
+                            <span class="h-10 w-10 rounded-full border border-gold/20 flex items-center justify-center text-gold bg-gold/5 shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </span>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white tracking-wider uppercase">Email</h4>
+                                <p class="text-gray-400 text-sm mt-1">gabinet@magiadotyku-konskie.pl</p>
+                            </div>
+                        </div>
+
+                        <!-- Working Hours -->
+                        <div class="flex items-start space-x-4">
+                            <span class="h-10 w-10 rounded-full border border-gold/20 flex items-center justify-center text-gold bg-gold/5 shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </span>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white tracking-wider uppercase">Godziny Przyjęć</h4>
+                                <p class="text-gray-400 text-sm mt-1">Przyjęcia po uprzednim kontakcie telefonicznym.</p>
+                                <p class="text-gray-400 text-sm">Dopasowuję godziny seansów elastycznie do potrzeb moich klientów.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Icons -->
+                    <div class="flex space-x-4 pt-6 border-t border-gold/10">
+                        <a href="#" class="h-10 w-10 rounded-full border border-gold/20 hover:border-gold hover:bg-gold/10 flex items-center justify-center text-gold transition-all duration-300">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="h-10 w-10 rounded-full border border-gold/20 hover:border-gold hover:bg-gold/10 flex items-center justify-center text-gold transition-all duration-300">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Phone Contact Column -->
+                <div class="bg-darkBg rounded-lg border border-gold/20 shadow-xl self-start overflow-hidden">
+                    <div class="border-b border-gold/10 p-7 md:p-8">
+                        <span class="text-xs font-semibold uppercase tracking-[0.3em] text-gold">Rezerwacje Telefoniczne</span>
+                        <h3 class="font-serif text-2xl md:text-3xl font-semibold text-white mt-3">Umów termin bezpośrednio</h3>
+                        <p class="text-gray-400 font-light text-sm leading-relaxed mt-4">
+                            Rezerwacje oraz zakup voucherów odbywają się telefonicznie. Zadzwoń lub wyślij SMS, aby ustalić dogodny termin i dobrać odpowiedni zabieg.
+                        </p>
+                    </div>
+
+                    <div class="p-7 md:p-8 space-y-5">
+                        <a href="tel:+48512316749" class="inline-flex w-full items-center justify-center px-8 py-4 rounded-md text-sm font-bold uppercase tracking-widest gold-gradient text-darkBg shadow-lg hover:shadow-gold/20 hover:scale-[1.01] transition-all duration-300">
+                            <i class="fa-solid fa-phone mr-2"></i> 512 316 749
+                        </a>
+                        <a href="sms:+48512316749" class="inline-flex w-full items-center justify-center px-8 py-3.5 rounded-md text-xs font-bold uppercase tracking-widest border border-gold/30 text-gold hover:border-gold hover:bg-gold/5 transition-all duration-300">
+                            <i class="fa-solid fa-comment-sms mr-2"></i> Wyślij SMS
+                        </a>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3">
+                            <div class="rounded-md border border-gold/10 bg-darkCard/70 p-4">
+                                <span class="text-[10px] uppercase tracking-[0.2em] text-gold">Forma</span>
+                                <p class="text-sm text-gray-300 mt-1">Telefon lub SMS</p>
+                            </div>
+                            <div class="rounded-md border border-gold/10 bg-darkCard/70 p-4">
+                                <span class="text-[10px] uppercase tracking-[0.2em] text-gold">Terminy</span>
+                                <p class="text-sm text-gray-300 mt-1">Ustalane indywidualnie</p>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-500 leading-relaxed pt-2">
+                            Jeśli nie odbiorę od razu, oddzwonię w najbliższym możliwym momencie.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darkBg border-t border-gold/10 py-12 text-center text-sm text-gray-500">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+            <div class="flex items-center space-x-3">
+                <img src="assets/images/421f349a-89fa-4627-90d6-3e0a6da3d2e3.JPG" alt="OW Magia Dotyku Logo" class="h-10 w-10 rounded-full object-cover">
+                <span class="font-serif text-gold text-base">OW Magia Dotyku</span>
+            </div>
+            <p>&copy; 2025 OW Magia Dotyku - Olga Wiktorowicz. Wszelkie prawa zastrzeżone.</p>
+            <div class="flex space-x-6 text-xs uppercase tracking-wider">
+                <a href="#" class="hover:text-gold transition-colors duration-200">Polityka Prywatności</a>
+                <a href="#" class="hover:text-gold transition-colors duration-200">Regulamin</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- UI/UX Scripts -->
+    <script>
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.remove('bg-transparent', 'py-4');
+                header.classList.add('bg-darkBg/95', 'backdrop-blur-md', 'py-3', 'border-b', 'border-gold/10', 'shadow-md');
+            } else {
+                header.classList.remove('bg-darkBg/95', 'backdrop-blur-md', 'py-3', 'border-b', 'border-gold/10', 'shadow-md');
+                header.classList.add('bg-transparent', 'py-4');
+            }
+        });
+
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.className = 'fa-solid fa-bars text-2xl';
+                document.body.style.overflow = '';
+            } else {
+                icon.className = 'fa-solid fa-xmark text-2xl';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                toggleMobileMenu();
+            });
+        });
+
+        const services = [
+            {
+                title: 'Masaż relaksacyjny całego ciała',
+                category: 'Masaż relaksacyjny',
+                duration: '60 min',
+                price: '150 zł',
+                icon: 'fa-spa',
+                look: 'Spokojny, płynny masaż całego ciała wykonywany w wyciszającej atmosferze, z użyciem olejku i dopasowanej intensywności dotyku.',
+                method: 'Łączy delikatne techniki głaskania, rozcierania i ugniatania, aby stopniowo rozluźnić napięte partie ciała.',
+                purpose: 'Dla redukcji stresu, poprawy samopoczucia, wyciszenia układu nerwowego i ogólnej regeneracji po wymagającym dniu.'
+            },
+            {
+                title: 'Masaż relaksacyjny pleców',
+                category: 'Masaż relaksacyjny',
+                duration: '30 min',
+                price: '80 zł',
+                icon: 'fa-hand-holding-heart',
+                look: 'Krótki, skupiony seans obejmujący plecy, kark i okolice barków, prowadzony w spokojnym tempie.',
+                method: 'Praca koncentruje się na miejscach, w których najczęściej zbiera się napięcie od siedzenia, stresu i codziennego przeciążenia.',
+                purpose: 'Dla szybkiego rozluźnienia pleców, zmniejszenia uczucia sztywności i odzyskania lekkości w górnej części ciała.'
+            },
+            {
+                title: 'Masaż bańką chińską całego ciała',
+                category: 'Modelowanie ciała',
+                duration: '60 min',
+                price: '120 zł',
+                icon: 'fa-circle-dot',
+                look: 'Dynamiczny zabieg z użyciem baniek przesuwanych po ciele po wcześniejszym nałożeniu olejku.',
+                method: 'Podciśnienie zasysa skórę i tkanki, pobudzając krążenie oraz intensywnie opracowując wybrane obszary.',
+                purpose: 'Dla ujędrnienia skóry, wsparcia walki z cellulitem, pobudzenia metabolizmu tkanek i poprawy krążenia.'
+            },
+            {
+                title: 'Masaż bańką chińską ud i pośladków',
+                category: 'Modelowanie ciała',
+                duration: '30 min',
+                price: '80 zł',
+                icon: 'fa-circle-dot',
+                look: 'Skoncentrowany zabieg na uda i pośladki, wykonywany rytmicznymi ruchami bańki po przygotowanej skórze.',
+                method: 'Technika podciśnieniowa intensywnie stymuluje tkanki w obszarach najbardziej narażonych na utratę jędrności.',
+                purpose: 'Dla poprawy napięcia skóry, wygładzenia jej struktury i wsparcia regularnej pielęgnacji antycellulitowej.'
+            },
+            {
+                title: 'Masaż gorącymi kamieniami całego ciała',
+                category: 'Rytuał rozgrzewający',
+                duration: '60 min',
+                price: '170 zł',
+                icon: 'fa-fire-flame-curved',
+                look: 'Ciepłe kamienie bazaltowe są układane i prowadzone po ciele, dając głębokie, przyjemne rozgrzanie.',
+                method: 'Połączenie ciepła i masażu pomaga mięśniom szybciej odpuścić napięcie oraz pogłębia uczucie odprężenia.',
+                purpose: 'Dla osób przemęczonych, spiętych, potrzebujących mocnego wyciszenia oraz komfortowego rozluźnienia całego ciała.'
+            },
+            {
+                title: 'Masaż gorącymi kamieniami tyłu ciała',
+                category: 'Rytuał rozgrzewający',
+                duration: '30 min',
+                price: '120 zł',
+                icon: 'fa-fire-flame-curved',
+                look: 'Rozgrzewający masaż pleców, karku, ramion i tylnej części nóg z użyciem gładkich kamieni.',
+                method: 'Ciepło kamieni wnika w napięte partie, a spokojne ruchy masażu wspierają ich rozluźnianie.',
+                purpose: 'Dla szybkiej regeneracji tyłu ciała, szczególnie gdy czujesz spięte plecy, barki lub zmęczone nogi.'
+            },
+            {
+                title: 'Masaż gorącą czekoladą całego ciała',
+                category: 'Rytuał odżywczy',
+                duration: '60 min',
+                price: '170 zł',
+                icon: 'fa-mug-hot',
+                look: 'Aromatyczny masaż całego ciała z użyciem ciepłej czekolady, który działa na zmysły i skórę.',
+                method: 'Ciepła czekolada ułatwia płynny masaż, otula zapachem i pozostawia skórę miękką oraz odżywioną.',
+                purpose: 'Dla głębokiego relaksu, poprawy nastroju, odżywienia skóry i stworzenia wyjątkowego rytuału dla siebie.'
+            },
+            {
+                title: 'Masaż gorącą czekoladą tyłu ciała',
+                category: 'Rytuał odżywczy',
+                duration: '30 min',
+                price: '130 zł',
+                icon: 'fa-mug-hot',
+                look: 'Krótsza wersja czekoladowego rytuału obejmująca tył ciała, z naciskiem na plecy i rozluźnienie.',
+                method: 'Ciepła konsystencja i spokojne techniki masażu pomagają odprężyć ciało, jednocześnie pielęgnując skórę.',
+                purpose: 'Dla osób, które chcą szybko poczuć relaks, przyjemne rozgrzanie i efekt miękkiej, zadbanej skóry.'
+            },
+            {
+                title: 'Masaż miodem całego ciała',
+                category: 'Rytuał detoksykujący',
+                duration: '60 min',
+                price: '160 zł',
+                icon: 'fa-leaf',
+                look: 'Naturalny, intensywnie pielęgnacyjny zabieg z użyciem miodu, prowadzony na całym ciele.',
+                method: 'Charakterystyczna lepkość miodu pozwala wykonywać ruchy pobudzające skórę i tkanki powierzchniowe.',
+                purpose: 'Dla odżywienia skóry, pobudzenia mikrokrążenia, wygładzenia i wsparcia naturalnej regeneracji ciała.'
+            },
+            {
+                title: 'Masaż miodem tyłu ciała',
+                category: 'Rytuał detoksykujący',
+                duration: '30 min',
+                price: '100 zł',
+                icon: 'fa-leaf',
+                look: 'Skoncentrowany zabieg na tył ciała, szczególnie plecy, z użyciem naturalnego miodu.',
+                method: 'Ruchy masażu i właściwości miodu wspierają pobudzenie skóry oraz rozluźnienie opracowywanych obszarów.',
+                purpose: 'Dla odświeżenia skóry, poprawy jej gładkości i połączenia pielęgnacji z odprężeniem pleców.'
+            },
+            {
+                title: 'Pielęgnacja ciała - peeling',
+                category: 'Pielęgnacja ciała',
+                duration: '60 min',
+                price: '140 zł',
+                icon: 'fa-wand-magic-sparkles',
+                look: 'Zabieg złuszczający wykonywany na ciele, po którym skóra staje się wyraźnie gładsza w dotyku.',
+                method: 'Peeling usuwa martwy naskórek i przygotowuje skórę do lepszego przyjęcia składników pielęgnacyjnych.',
+                purpose: 'Dla wygładzenia, odświeżenia skóry, poprawy jej kolorytu i przygotowania do dalszych rytuałów pielęgnacyjnych.'
+            },
+            {
+                title: 'Body wrapping całego ciała',
+                category: 'Modelowanie ciała',
+                duration: '60 min',
+                price: '160 zł',
+                icon: 'fa-ribbon',
+                look: 'Ciało zostaje pokryte preparatem pielęgnacyjnym i owinięte, aby wzmocnić działanie składników aktywnych.',
+                method: 'Okluzja pomaga preparatom intensywniej pracować na skórze, wspierając efekt ujędrnienia i wygładzenia.',
+                purpose: 'Dla poprawy napięcia skóry, modelowania sylwetki, redukcji uczucia obrzęków i wsparcia pielęgnacji antycellulitowej.'
+            },
+            {
+                title: 'Masaż twarzy + maseczka',
+                category: 'Pielęgnacja twarzy',
+                duration: '30 min',
+                price: '100 zł',
+                icon: 'fa-face-smile',
+                look: 'Delikatny masaż twarzy zakończony dobraną maseczką, w spokojnej i wyciszającej atmosferze.',
+                method: 'Techniki masażu pobudzają mikrokrążenie i rozluźniają mięśnie mimiczne, a maseczka dopełnia pielęgnację.',
+                purpose: 'Dla odświeżenia cery, poprawy jej blasku, lekkiego rozluźnienia twarzy i chwili relaksu.'
+            },
+            {
+                title: 'Masaż twarzy, szyi i dekoltu + maseczka',
+                category: 'Pielęgnacja twarzy',
+                duration: '40 min',
+                price: '140 zł',
+                icon: 'fa-face-smile-beam',
+                look: 'Rozszerzony masaż obejmujący twarz, szyję i dekolt, zakończony pielęgnacyjną maseczką.',
+                method: 'Praca na większym obszarze pomaga rozluźnić napięcia, poprawić ukrwienie i przywrócić skórze świeższy wygląd.',
+                purpose: 'Dla naturalnego efektu odprężenia rysów, lepszej jędrności skóry i kompleksowej pielęgnacji widocznych partii.'
+            },
+            {
+                title: 'Oczyszczanie twarzy + maseczka',
+                category: 'Pielęgnacja twarzy',
+                duration: '30 min',
+                price: '100 zł',
+                icon: 'fa-droplet',
+                look: 'Zabieg oczyszczający zakończony maseczką, dopasowany do aktualnych potrzeb skóry twarzy.',
+                method: 'Skóra zostaje oczyszczona i przygotowana do przyjęcia składników łagodzących lub odżywczych z maseczki.',
+                purpose: 'Dla odświeżenia cery, zmniejszenia uczucia obciążenia skóry i przywrócenia jej czystszego, zadbanego wyglądu.'
+            },
+            {
+                title: 'Seans saunowy Infrared',
+                category: 'Sauna Infrared',
+                duration: '60 min',
+                price: '170 zł',
+                icon: 'fa-sun',
+                look: 'Spokojny seans w saunie na podczerwień, gdzie ciepło działa bezpośrednio na ciało w komfortowy sposób.',
+                method: 'Promieniowanie infrared ogrzewa tkanki, wspierając naturalne procesy regeneracji i rozluźnienia.',
+                purpose: 'Dla odprężenia, detoksykacji, wsparcia regeneracji mięśni oraz przyjemnego dogrzania organizmu.'
+            }
+        ];
+
+        const servicesCarousel = document.getElementById('services-carousel');
+        const serviceModal = document.getElementById('service-modal');
+        const serviceModalClose = document.getElementById('service-modal-close');
+        const serviceModalPricing = document.getElementById('service-modal-pricing');
+        const serviceFields = {
+            category: document.getElementById('service-modal-category'),
+            title: document.getElementById('service-modal-title'),
+            meta: document.getElementById('service-modal-meta'),
+            look: document.getElementById('service-modal-look'),
+            method: document.getElementById('service-modal-method'),
+            purpose: document.getElementById('service-modal-purpose')
+        };
+
+        function renderServiceCards() {
+            if (!servicesCarousel) return;
+            servicesCarousel.innerHTML = services.map((service, index) => `
+                <button type="button" data-service-index="${index}" class="service-card group text-left bg-darkCard border border-gold/10 hover:border-gold/40 rounded-lg p-6 min-w-[260px] sm:min-w-[300px] max-w-[300px] min-h-[260px] snap-start hover-lift flex flex-col justify-between transition-colors duration-300">
+                    <span class="h-12 w-12 rounded-full border border-gold/25 bg-gold/5 text-gold flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid ${service.icon}"></i>
+                    </span>
+                    <span class="text-[10px] uppercase tracking-[0.24em] text-gold/80 font-semibold">${service.category}</span>
+                    <h3 class="font-serif text-xl text-white font-semibold mt-3 leading-snug">${service.title}</h3>
+                    <div class="mt-6 pt-4 border-t border-gold/10 flex items-center justify-between text-sm">
+                        <span class="text-gray-400">${service.duration}</span>
+                        <span class="font-serif text-gold font-bold text-lg">${service.price}</span>
+                    </div>
+                    <span class="mt-5 text-xs uppercase tracking-widest text-gray-500 group-hover:text-gold transition-colors duration-200">Poznaj szczegóły</span>
+                </button>
+            `).join('');
+        }
+
+        function openServiceModal(service) {
+            serviceFields.category.textContent = service.category;
+            serviceFields.title.textContent = service.title;
+            serviceFields.meta.textContent = `${service.duration} / ${service.price}`;
+            serviceFields.look.textContent = service.look;
+            serviceFields.method.textContent = service.method;
+            serviceFields.purpose.textContent = service.purpose;
+            serviceModal.classList.remove('hidden');
+            serviceModal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeServiceModal() {
+            serviceModal.classList.add('hidden');
+            serviceModal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        renderServiceCards();
+
+        servicesCarousel?.addEventListener('click', (event) => {
+            const card = event.target.closest('[data-service-index]');
+            if (!card) return;
+            openServiceModal(services[Number(card.dataset.serviceIndex)]);
+        });
+
+        document.getElementById('services-prev')?.addEventListener('click', () => {
+            servicesCarousel.scrollBy({ left: -320, behavior: 'smooth' });
+        });
+
+        document.getElementById('services-next')?.addEventListener('click', () => {
+            servicesCarousel.scrollBy({ left: 320, behavior: 'smooth' });
+        });
+
+        serviceModalClose?.addEventListener('click', closeServiceModal);
+        serviceModal?.addEventListener('click', (event) => {
+            if (event.target === serviceModal) {
+                closeServiceModal();
+            }
+        });
+        serviceModalPricing?.addEventListener('click', closeServiceModal);
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !serviceModal.classList.contains('hidden')) {
+                closeServiceModal();
+            }
+        });
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            revealObserver.observe(el);
+        });
+
+        const styleSheet = document.createElement("style");
+        styleSheet.innerText = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            .animate-fade-in-up {
+                animation: fadeInUp 0.8s forwards ease-out;
+            }
+        `;
+        document.head.appendChild(styleSheet);
+    </script>
+</body>
+</html>
