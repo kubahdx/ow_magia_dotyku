@@ -113,13 +113,13 @@
             </nav>
 
             <!-- Mobile Menu Toggle Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-gold focus:outline-none focus:ring-2 focus:ring-gold p-2 rounded" aria-label="Menu">
+            <button id="mobile-menu-btn" class="md:hidden relative z-[70] text-gold focus:outline-none focus:ring-2 focus:ring-gold p-2 rounded" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
                 <i class="fa-solid fa-bars text-2xl"></i>
             </button>
         </div>
 
         <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="hidden fixed inset-x-0 bottom-0 bg-darkBg/95 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-5 min-[360px]:gap-7 sm:gap-8 overflow-y-auto py-8 px-6 text-base min-[360px]:text-lg uppercase tracking-[0.2em] font-medium transition-all duration-300">
+        <div id="mobile-menu" class="hidden fixed inset-0 min-h-[100dvh] bg-darkBg/95 backdrop-blur-md z-[60] flex flex-col items-center justify-center gap-5 min-[360px]:gap-7 sm:gap-8 overflow-y-auto pt-24 pb-10 px-6 text-base min-[360px]:text-lg uppercase tracking-[0.2em] font-medium transition-all duration-300">
             <a href="#o-mnie" class="mobile-nav-link hover:text-gold">O Mnie</a>
             <a href="#cennik" class="mobile-nav-link hover:text-gold">Cennik</a>
             <a href="#kwalifikacje" class="mobile-nav-link hover:text-gold">Kwalifikacje</a>
@@ -755,23 +755,44 @@
 
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        let mobileMenuScrollY = 0;
         
-        function toggleMobileMenu() {
-            mobileMenu.classList.toggle('hidden');
+        function openMobileMenu() {
+            mobileMenuScrollY = window.scrollY;
+            mobileMenu.classList.remove('hidden');
             const icon = mobileMenuBtn.querySelector('i');
+            icon.className = 'fa-solid fa-xmark text-2xl';
+            mobileMenuBtn.setAttribute('aria-expanded', 'true');
+            document.documentElement.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${mobileMenuScrollY}px`;
+            document.body.style.width = '100%';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.className = 'fa-solid fa-bars text-2xl';
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            document.documentElement.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            window.scrollTo(0, mobileMenuScrollY);
+        }
+
+        function toggleMobileMenu() {
             if (mobileMenu.classList.contains('hidden')) {
-                icon.className = 'fa-solid fa-bars text-2xl';
-                document.body.style.overflow = '';
+                openMobileMenu();
             } else {
-                icon.className = 'fa-solid fa-xmark text-2xl';
-                document.body.style.overflow = 'hidden';
+                closeMobileMenu();
             }
         }
         mobileMenuBtn.addEventListener('click', toggleMobileMenu);
 
         document.querySelectorAll('.mobile-nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                toggleMobileMenu();
+                closeMobileMenu();
             });
         });
 
